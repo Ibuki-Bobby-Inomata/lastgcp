@@ -66,7 +66,10 @@ class MessageForm(Form):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    last_messages = Message.query.order_by(desc(Message.id)).limit(5)
+    last_messages = [message for message in last_messages]
+    last_messages.reverse()
+    return render_template('sql_x.html', messages=last_messages)
 
 @app.route('/messages')
 def messages():
