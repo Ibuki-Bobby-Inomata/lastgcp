@@ -70,7 +70,7 @@ def index():
 
 @app.route('/messages')
 def messages():
-    form = MessageForm(request.form)
+    # form = MessageForm(request.form)
     last_messages = Message.query.order_by(desc(Message.id)).limit(5)
     last_messages = [message for message in last_messages]
     last_messages.reverse()
