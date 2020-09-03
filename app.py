@@ -16,10 +16,10 @@ from gcloud import storage
 import uuid, tempfile
 
 #### Edit Here
-project_id = '<Your_Project_ID>'
+project_id = 'gcp-compute-engine-288310'
 dbuser = 'appuser'
 dbpass = 'pas4appuser'
-dbinstance = '<Your_Instance_Connection_Name>'
+dbinstance = 'gcp-compute-engine-288310:asia-northeast1:websql'
 ####
 
 app = Flask(__name__)

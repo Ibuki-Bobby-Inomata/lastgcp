@@ -3,7 +3,7 @@ Description=Google Cloud SQL Proxy
 After=syslog.target network.target auditd.service
 
 [Service]
-ExecStart=/opt/cloudsqlproxy/cloud_sql_proxy -dir=/cloudsql -instances=<Your_Instance_Connection_Name>
+ExecStart=/opt/cloudsqlproxy/cloud_sql_proxy -dir=/cloudsql -instances=gcp-compute-engine-288310:asia-northeast1:websql
 ExecStop=/bin/kill -TERM $MAINPID
 
 [Install]
