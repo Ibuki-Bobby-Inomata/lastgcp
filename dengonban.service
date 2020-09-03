@@ -3,7 +3,7 @@ Description=Message Board Application
 After=syslog.target network.target auditd.service
 
 [Service]
-ExecStart=/opt/dengonban/v3/app.py
+ExecStart=/opt/dengonban/v4/app.py
 ExecStop=/bin/kill -TERM $MAINPID
 
 [Install]
