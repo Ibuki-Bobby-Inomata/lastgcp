@@ -16,10 +16,10 @@ from gcloud import storage
 import uuid, tempfile
 
 #### Edit Here
-project_id = 'gcp-compute-engine-288310'
+project_id = '<Your_Project_ID>'
 dbuser = 'appuser'
 dbpass = 'pas4appuser'
-dbinstance = 'gcp-compute-engine-288310:asia-northeast1:websql'
+dbinstance = '<Your_Instance_Connection_Name>'
 ####
 
 app = Flask(__name__)
@@ -70,11 +70,12 @@ def index():
 
 @app.route('/messages')
 def messages():
-    # form = MessageForm(request.form)
+    form = MessageForm(request.form)
     last_messages = Message.query.order_by(desc(Message.id)).limit(5)
     last_messages = [message for message in last_messages]
     last_messages.reverse()
-    return render_template('messages.html', messages=last_messages)
+    return render_template('messages.html', storage_path=storage_path,
+                           form=form, messages=last_messages)
 
 @app.route('/post', methods=['POST'])
 def post():
