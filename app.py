@@ -74,8 +74,7 @@ def messages():
     last_messages = Message.query.order_by(desc(Message.id)).limit(5)
     last_messages = [message for message in last_messages]
     last_messages.reverse()
-    return render_template('messages.html', storage_path=storage_path,
-                           form=form, messages=last_messages)
+    return render_template('messages.html', messages=last_messages)
 
 @app.route('/post', methods=['POST'])
 def post():
